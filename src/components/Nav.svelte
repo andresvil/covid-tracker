@@ -1,11 +1,16 @@
 <script>
 	export let segment;
+	let isOpen = false;
+	function toggleNav() {
+		isOpen = !isOpen;
+	}
 </script>
 
 <style>
+	/* NOT WORKING ??? */
 	@media (min-width: 769px) {
 		nav {
-			border-bottom: solid gray 1px;
+			border-bottom: solid gray 10px;
 		}
 	}
 </style>
@@ -15,16 +20,16 @@
 		<a href="/" class="navbar-item">
 			<img src="virus-logo.png" alt="virus logo">
 		</a>
-		<span class="navbar-burger" aria-label="menu" aria-expanded="false">
+		<span class="navbar-burger" class:is-active={isOpen} on:click={toggleNav} aria-label="menu" aria-expanded="false">
 			<span aria-hidden="true"></span>
 			<span aria-hidden="true"></span>
 			<span aria-hidden="true"></span>
 		</span>
 	</div>
-	<div class="navbar-menu">
+	<div class="navbar-menu" class:is-active={isOpen}>
 		<div class="navbar-start">
-			<a href="/" class="navbar-item">Home</a>
-			<a href="/about" class="navbar-item">About</a>
+			<a href="/" class="navbar-item" class:is-active={segment === undefined}>Home</a>
+			<a href="/about" class="navbar-item" class:is-active={segment === 'about'}>About</a>
 		</div>
 	</div>
 </nav>
