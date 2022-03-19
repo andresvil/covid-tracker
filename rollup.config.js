@@ -37,7 +37,7 @@ export default {
 					hydratable: true
 				}
 			}),
-			css({output: 'static/extra.css'}),
+			css({ output: 'static/extra.css' }),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
 				publicPath: '/client/'
